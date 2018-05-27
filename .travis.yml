@@ -62,7 +62,9 @@ script:
 - npm run lint
 - npm run test-ci
 - cordova plugin add cordova-plugin-whitelist
+- cordova platform add android@^6.2.3
 - cordova plugin ls
+- cordova platform ls
 - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then ./travis/build-android.sh && ./travis/package-android.sh ; fi
 env:
   global:
