@@ -9,6 +9,7 @@ if [[ "$TRAVIS_BRANCH" == "travis" ]]
 then
     echo "building apk for dev"
     ionic cordova build android
+    ls -l platforms/android/build/outputs/apk/
 else
     echo "building apk from prod"
     ionic cordova build android --prod --release
