@@ -61,7 +61,7 @@ script:
 - npm run build
 - npm run lint
 - npm run test-ci
-- if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then ionic cordova platform add android --nofetch && ionic cordova build android ; fi
+- if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then ./travis/build-android.sh && ./travis/package-android.sh ; fi
 env:
   global:
   - JAVA_HOME=/usr/lib/jvm/java-8-oracle
