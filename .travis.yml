@@ -54,6 +54,9 @@ before_install:
 - nvm install 8
 - yarn global add ionic cordova
 script:
+- yarn install
+- cordova platform add android --nofetch
+- ionic cordova build android
 - npm run clean
 - npm run build
 - npm run lint
