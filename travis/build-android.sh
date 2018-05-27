@@ -4,11 +4,13 @@ set -e
 
 # Build Ionic App for Android
 # ionic cordova platform add android --nofetch
-ionic cordova platform add android
+
 
 if [[ "$TRAVIS_BRANCH" == "travis" ]]
 then
     echo "building apk for dev"
+    ionic cordova platform remove android
+    ionic cordova platform add android
     ionic cordova build android
 else
     echo "building apk from prod"

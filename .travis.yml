@@ -2,6 +2,9 @@ branches:
   only:
   - master
   - travis
+notifications:
+  email:
+    nutannivate@gmail.com
 matrix:
   include:
   - os: linux
