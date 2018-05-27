@@ -61,8 +61,9 @@ script:
 - npm run build
 - npm run lint
 - npm run test-ci
+- cordova plugin add cordova-plugin-whitelist
 - cordova plugin ls
-- # if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then ./travis/build-android.sh && ./travis/package-android.sh ; fi
+- if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then ./travis/build-android.sh && ./travis/package-android.sh ; fi
 env:
   global:
   - JAVA_HOME=/usr/lib/jvm/java-8-oracle
