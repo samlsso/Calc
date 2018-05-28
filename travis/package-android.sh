@@ -2,12 +2,11 @@
 
 set -e
 
-if [[ "$TRAVIS_BRANCH" == "travis" ]]
+if [[ "$TRAVIS_BRANCH" != "master" ]]
 then
     echo "Skipping package Android for develop branch"
-    exit
+    exit 0
 fi
 
-mkdir -p output
-cp platforms/android/build/outputs/apk/android-release-unsigned.apk output/ionictravis-release-unsigned.apk
-
+# mkdir output
+# find platforms/android/ -type f -iname *.apk -exec cp -v {} output/

@@ -6,7 +6,7 @@ set -e
 # ionic cordova platform add android --nofetch
 
 
-if [[ "$TRAVIS_BRANCH" == "travis" ]]
+if [[ "$TRAVIS_BRANCH" != "master" ]]
 then
     echo "building apk for dev"
     ionic cordova platform remove android
