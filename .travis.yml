@@ -55,6 +55,7 @@ cache:
 before_install:
 - export LANG=en_US.UTF-8
 - export CHROME_BIN=google-chrome
+- export TRAVIS_TAG=`git tag --points-at HEAD`
 - nvm install 8
 - yarn global add ionic cordova
 - mkdir -p $ANDROID_HOME/licenses
