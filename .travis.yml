@@ -70,9 +70,6 @@ script:
 - cordova plugin ls
 - cordova platform ls
 - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then ./travis/build-android.sh && ./travis/package-android.sh ; fi
-before_deploy:
-  - git config --local user.name "Nutan"
-  - git config --local user.email "nutannivate@gmail.com"
 deploy:
   provider: releases
   api_key:
