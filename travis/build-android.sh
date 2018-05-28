@@ -9,7 +9,7 @@ ionic cordova platform add android
 if [[ "$TRAVIS_BRANCH" != "master" ]]
 then
     echo "building apk for dev"
-    ionic cordova build android --prod --release
+    ionic cordova build android
 else
     echo "building apk from prod"
     ionic cordova build android --prod --release

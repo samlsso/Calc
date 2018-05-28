@@ -2,11 +2,12 @@
 
 set -e
 
-if [[ "$TRAVIS_BRANCH" != "master" ]]
+if [[ -e platforms/android/app/build/outputs/apk ]]
 then
-    echo "Skipping package Android for develop branch"
-    exit 0
+    echo "APK built"
+    # mkdir -p output
+    # find platforms/android/app/build/outputs/apk -type f -iname *.apk -exec cp -v {} output/
+else
+    echo "No APK found!"
+    exit 1
 fi
-
-# mkdir output
-# find platforms/android/ -type f -iname *.apk -exec cp -v {} output/
