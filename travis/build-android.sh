@@ -6,11 +6,11 @@ set -e
 ionic cordova platform remove android
 ionic cordova platform add android
 
-if [[ "$TRAVIS_BRANCH" != "master" ]]
+if [[ "$TRAVIS_BRANCH" == "prod" ]]
 then
-    echo "building apk for dev"
-    ionic cordova build android
-else
-    echo "building apk from prod"
+    echo "building apk for prod"
     ionic cordova build android --prod --release
+else
+    echo "building apk from dev"
+    ionic cordova build android
 fi
