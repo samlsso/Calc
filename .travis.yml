@@ -2,6 +2,7 @@ branches:
   only:
   - master
   - travis
+  - prod
 notifications:
   email: nutannivate@gmail.com
 matrix:
@@ -70,16 +71,17 @@ script:
 - cordova plugin add cordova-plugin-whitelist
 - cordova plugin ls
 - cordova platform ls
-- if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then ./travis/build-android.sh && ./travis/package-android.sh ; fi
+- if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then ./travis/build-android.sh ; fi
 deploy:
   provider: releases
   api_key:
     secure: KUTa5ZqXYZdInCZE8RTPo+PitwCknEy4ob5zjvD4o8cC996+iJA66J+lzW2nylOPJBOSjkFnh+igjiGCAJki5v/t5/URyqNMyia+ariwiWMk5LVqXwsXuGrQb1YfwQ7TWxcVX3TYgRyQm1xnW0oNPLfC6FMcBkODSnmGmv85hg5iFkwn3E8kzarKaphD4V0iuHSali1IcPHY/Sb4mxkV6hlU13h5BfNQzTPT9GmEv7QjOAKN0GxXkEXdtv72Ph+6CO7EjM5Jp3aYvhlcMKVTIITbo3NmFxo8wz+aAZxSNGiP1M/ZbtzxoXgEBWzPvBSA8V7JwBnR/36A+QBANM6Yf2XK4PQa//9HEp6Nwo/9wW1JgC+vPOOLWsEFmkNvwrCCOPdW1B/qWggiuXaSEP94H5/A+VI9NN1Cggp6WZfWdPsZ6pbHYfNcLcAhNxYKPeCGVU8KG9RwNfw/t6GS/byaKHOx9UIfiBcuXpyOgpx8/ItlJ8+waRYpA8y/3bHh5qCXr1FzTs3so8i/waiKmnlk8A1gCr7zfgO9jkj6qpYMwXUv5sXxvmrz7/bQBlIFTNuLu8N+3suEQY34Zo5l69zaSryFXeRVkjIOSZ92CyjRyD1IOvDHq6pN63WcWQ2AEF0I0pWXriKKbii7/uqPtQebD7j0GT6bvHWyJY3vP+dS5tc=
-  file: "/home/travis/build/nutannivate/Calc/platforms/android/app/build/outputs/apk/debug/app-debug.apk"
+  file_glob: true
+  file: "/home/travis/build/nutannivate/Calc/platforms/android/app/build/outputs/apk/*/*.apk"
   skip_cleanup: true
   on:
     repo: nutannivate/Calc
-    branch: travis
+    all_branches: true
     tags: true
 env:
   global:
